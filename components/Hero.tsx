@@ -158,7 +158,7 @@ export default function Hero() {
                       {/* Actual headshot */}
                       <div className="w-full h-full">
                         <Image
-                          src="/images/vector.png"
+                          src="/images/Vector.png"
                           alt="Rahul Gupta"
                           fill
                           className="object-cover"

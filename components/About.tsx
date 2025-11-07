@@ -34,7 +34,7 @@ export default function About() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden glass-card p-4">
                 <div className="relative w-full h-full rounded-xl overflow-hidden">
                   <div className="w-full h-full relative">
-                    <Image src="/images/vector.png" alt="Rahul Gupta" fill className="object-cover" />
+                    <Image src="/images/Vector.png" alt="Rahul Gupta" fill className="object-cover" />
                   </div>
                 </div>
               </div>
