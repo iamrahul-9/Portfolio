@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -48,7 +48,7 @@ export default function Contact() {
             <span className="gradient-text">Get In Touch</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Have a project in mind or just want to chat? I'd love to hear from you!
+            Have a project in mind or just want to chat? I&apos;d love to hear from you!
           </p>
         </motion.div>
 
@@ -62,10 +62,10 @@ export default function Contact() {
           >
             <div>
               <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">
-                Let's Create Something Amazing
+                Let&apos;s Create Something Amazing
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
-                I'm currently available for opportunities and freelance work. Whether you have a project, question, or want to connect, feel free to reach out — I reply promptly.
+                I&apos;m currently available for opportunities and freelance work. Whether you have a project, question, or want to connect, feel free to reach out — I reply promptly.
               </p>
             </div>
 

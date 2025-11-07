@@ -52,7 +52,7 @@ export default function Hero() {
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-              <span className="block">Hi, I'm</span>
+              <span className="block">Hi, I&apos;m</span>
               <span className="gradient-text block">Rahul Gupta</span>
             </h1>
 

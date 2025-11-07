@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Database, Brain, Cloud, Layers, GitBranch } from "lucide-react";
+import { Code2, Database, Brain, Cloud, Layers } from "lucide-react";
 
 const skills = [
   {

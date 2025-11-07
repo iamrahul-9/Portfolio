@@ -30,7 +30,6 @@ export default function ParticleBackground() {
     }> = [];
 
     const particleCount = 80;
-    const isDark = document.documentElement.classList.contains("dark");
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({

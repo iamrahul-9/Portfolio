@@ -62,7 +62,7 @@ export default function About() {
             
             <div className="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
               <p>
-                I'm Rahul Gupta — a Full Stack & AI Developer with practical experience building production systems and automation tools for operations and retail.
+                I&apos;m Rahul Gupta — a Full Stack & AI Developer with practical experience building production systems and automation tools for operations and retail.
               </p>
 
               <p>
