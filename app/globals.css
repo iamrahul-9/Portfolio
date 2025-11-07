@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Minimal Light Theme - White & Gray tones */
+    --bg-primary: 255 255 255;
+    --bg-secondary: 249 250 251;
+    --text-primary: 17 24 39;
+    --accent-primary: 75 85 99;
+    --accent-secondary: 156 163 175;
+    --glass-tint: 255 255 255;
+  }
+
+  .dark {
+    /* Minimal Dark Theme - Black & Gray tones */
+    --bg-primary: 17 24 39;
+    --bg-secondary: 31 41 55;
+    --text-primary: 249 250 251;
+    --accent-primary: 209 213 219;
+    --accent-secondary: 107 114 128;
+    --glass-tint: 31 41 55;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-gray-50 via-white to-gray-100;
+    @apply dark:bg-gradient-to-br dark:from-black dark:via-gray-950 dark:to-gray-900;
+    @apply text-gray-900 dark:text-gray-50;
+    @apply transition-all duration-700 ease-in-out;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  :is(.dark body)::before {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar with minimal style */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100/30 dark:bg-gray-800/30;
+    backdrop-filter: blur(10px);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400/60 dark:bg-gray-500/60;
+    @apply rounded-full;
+    backdrop-filter: blur(10px);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500/80 dark:bg-gray-400/80;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-filter backdrop-blur-[60px] backdrop-saturate-[200%];
+    @apply bg-white/40 dark:bg-gray-900/30;
+    @apply border border-white/40 dark:border-gray-700/40;
+    @apply shadow-2xl shadow-gray-400/20 dark:shadow-black/40;
+    @apply rounded-3xl;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card:hover {
+    @apply bg-white/50 dark:bg-gray-900/40;
+    @apply border-white/60 dark:border-gray-600/60;
+    @apply shadow-gray-400/30 dark:shadow-black/60;
+    transform: translateY(-2px);
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-gray-900 to-gray-600;
+    @apply dark:from-gray-100 dark:to-gray-400;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-semibold;
+    @apply backdrop-filter backdrop-blur-xl;
+    @apply bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700;
+    @apply dark:from-gray-100 dark:via-gray-200 dark:to-gray-300;
+    @apply text-white dark:text-gray-900;
+    @apply shadow-lg shadow-gray-900/30 dark:shadow-gray-100/20;
+    @apply hover:shadow-2xl hover:shadow-gray-900/50 dark:hover:shadow-gray-100/40;
+    @apply border border-gray-700/50 dark:border-gray-300/50;
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .icon-dual-tone {
+    @apply bg-gradient-to-br from-gray-900 to-gray-600;
+    @apply dark:from-gray-100 dark:to-gray-400;
+  }
+  
+  .icon-glow {
+    filter: drop-shadow(0 0 8px rgba(107, 114, 128, 0.5));
+  }
+  
+  .dark .icon-glow {
+    filter: drop-shadow(0 0 12px rgba(209, 213, 219, 0.6));
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32 px-6 md:px-12 lg:px-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glow-gray {
+    box-shadow: 0 0 30px rgba(107, 114, 128, 0.3),
+                0 0 60px rgba(156, 163, 175, 0.15),
+                0 0 90px rgba(209, 213, 219, 0.08);
+  }
+
+  .glow-effect {
+    @apply dark:glow-gray;
+  }
+  
+  .frosted-glass {
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+  }
+}
+
+/* Smooth page transitions */
+.page-transition {
+  @apply transition-opacity duration-500;
+}
+
+/* Animations for scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient animation */
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+}
+
+/* Particle canvas */
+.particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
