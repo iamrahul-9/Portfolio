@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import { Globe, TrendingUp, Settings, Cloud } from "lucide-react";
 
 export default function About() {
   const ref = useRef(null);
@@ -62,36 +63,38 @@ export default function About() {
             
             <div className="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
               <p>
-                I&apos;m Rahul Gupta — a Full Stack & AI Developer with practical experience building production systems and automation tools for operations and retail.
+                I&apos;m Rahul Gupta — a Python developer and ML engineer building production web apps and data-driven tools. I focus on practical ML, automation, and reliable deployments.
               </p>
 
               <p>
-                Recently I led technology and process transformation at a 20+ year wholesale brand, building internal tools (Line Sheet Manager), automating workflows, and deploying AI-powered Virtual Try-On (VTON) solutions that reduced costs and accelerated time-to-market.
-              </p>
-
-              <p>
-                I work across the stack — React/Next.js on the frontend, Python and Node.js on the backend — and I focus on pragmatic, secure, and scalable solutions that drive measurable business impact.
+                I&apos;ve built internal tools like <strong>Line Sheet Manager</strong> (Flask + Pandas + Cloudinary) to automate workflows and improve operational efficiency. My stack: <strong>Flask</strong>, <strong>Pandas</strong>, <strong>scikit-learn</strong>, <strong>Streamlit</strong>, and Tailwind frontends.
               </p>
 
               <div className="pt-6">
                 <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">What I Do</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    "⚡ Full-Stack Development",
-                    "🤖 AI/ML Integration",
-                    "☁️ Cloud & DevOps",
-                    "📊 Process Automation",
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                      className="glass-card p-3 rounded-lg text-center hover:scale-105 transition-transform"
-                    >
-                      {item}
-                    </motion.div>
-                  ))}
+                    { icon: Globe, text: "Web apps (Flask, Streamlit)" },
+                    { icon: TrendingUp, text: "Data & ML pipelines (Pandas, scikit-learn)" },
+                    { icon: Settings, text: "Automation & integrations (APIs, Excel)" },
+                    { icon: Cloud, text: "Deployment & ops (Docker, Heroku, AWS, Vercel)" }
+                  ].map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.5, delay: 0.6 + index * 0.08 }}
+                        className="glass-card p-3 rounded-lg hover:scale-105 transition-transform"
+                      >
+                        <div className="flex items-center gap-2">
+                          <Icon className="w-4 h-4 flex-shrink-0 text-gray-700 dark:text-gray-300" strokeWidth={1.5} />
+                          <span className="text-sm text-gray-700 dark:text-gray-300">{item.text}</span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

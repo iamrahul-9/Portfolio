@@ -8,11 +8,13 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
 import ParticleBackground from "@/components/ParticleBackground";
+import Navigation from "@/components/Navigation";
 
 export default function Home() {
   return (
     <main className="relative overflow-hidden">
       <ParticleBackground />
+      <Navigation />
       <ThemeToggle />
       
       <Hero />

@@ -8,29 +8,45 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! I'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
+    setStatus("submitting");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    // Append the access key
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY!);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const responseData = await response.json();
+
+      if (responseData.success) {
+        setStatus("success");
+        form.reset();
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        console.error("Web3Forms API Error:", responseData);
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   return (
     <section id="contact" className="section-padding bg-light-surface dark:bg-dark-surface/50 relative overflow-hidden">
-      {/* Floating gradient waves */}
-            {/* Background decorative elements */}
+      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-gray-400 to-gray-600 dark:from-gray-600 dark:to-gray-800 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-gray-500 to-gray-700 dark:from-gray-700 dark:to-gray-900 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
@@ -62,16 +78,17 @@ export default function Contact() {
           >
             <div>
               <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">
-                Let&apos;s Create Something Amazing
+                Let&apos;s Connect
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
-                I&apos;m currently available for opportunities and freelance work. Whether you have a project, question, or want to connect, feel free to reach out — I reply promptly.
+                I&apos;m currently available for freelance work and collaborations. Feel free to reach out!
               </p>
             </div>
 
             {/* Contact Details */}
             <div className="space-y-4">
-              <motion.div
+              <motion.a
+                href="mailto:rahulbgupta24@gmail.com"
                 whileHover={{ x: 10 }}
                 className="flex items-center gap-4 p-4 glass-card rounded-xl"
               >
@@ -80,13 +97,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                  <a href="mailto:rahulbgupta24@gmail.com" className="text-lg font-semibold hover:gradient-text transition-all">
+                  <p className="text-lg font-semibold hover:gradient-text transition-all">
                     rahulbgupta24@gmail.com
-                  </a>
+                  </p>
                 </div>
-              </motion.div>
+              </motion.a>
 
-              <motion.div
+              <motion.a
+                href="tel:+19057824254"
                 whileHover={{ x: 10 }}
                 className="flex items-center gap-4 p-4 glass-card rounded-xl"
               >
@@ -95,11 +113,11 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Phone</p>
-                  <a href="tel:+19057824254" className="text-lg font-semibold hover:gradient-text transition-all">
+                  <p className="text-lg font-semibold hover:gradient-text transition-all">
                     +1 905-782-4254
-                  </a>
+                  </p>
                 </div>
-              </motion.div>
+              </motion.a>
 
               <motion.div
                 whileHover={{ x: 10 }}
@@ -158,8 +176,6 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-gray-900 dark:focus:border-gray-100 focus:ring-2 focus:ring-gray-900/20 dark:focus:ring-gray-100/20 transition-all outline-none"
                   placeholder="Your Name"
@@ -174,27 +190,9 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-gray-900 dark:focus:border-gray-100 focus:ring-2 focus:ring-gray-900/20 dark:focus:ring-gray-100/20 transition-all outline-none"
                   placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-gray-900 dark:focus:border-gray-100 focus:ring-2 focus:ring-gray-900/20 dark:focus:ring-gray-100/20 transition-all outline-none"
-                  placeholder="What's this about?"
                 />
               </div>
 
@@ -205,23 +203,52 @@ export default function Contact() {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
-                  rows={5}
+                  rows={6}
                   className="w-full px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-gray-900 dark:focus:border-gray-100 focus:ring-2 focus:ring-gray-900/20 dark:focus:ring-gray-100/20 transition-all outline-none resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
+              {/* Status Messages */}
+              {status === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-lg bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 text-green-800 dark:text-green-300"
+                >
+                  ✓ Message sent successfully! I&apos;ll get back to you soon.
+                </motion.div>
+              )}
+
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-lg bg-red-100 dark:bg-red-900/30 border border-red-300 dark:border-red-700 text-red-800 dark:text-red-300"
+                >
+                  ✗ Something went wrong. Please try again or email me directly.
+                </motion.div>
+              )}
+
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full btn-primary flex items-center justify-center gap-2"
+                disabled={status === "submitting"}
+                whileHover={{ scale: status === "submitting" ? 1 : 1.02 }}
+                whileTap={{ scale: status === "submitting" ? 1 : 0.98 }}
+                className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send className="w-5 h-5" />
-                Send Message
+                {status === "submitting" ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </>
+                )}
               </motion.button>
             </form>
           </motion.div>

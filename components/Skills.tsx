@@ -7,39 +7,39 @@ import { Code2, Database, Brain, Cloud, Layers } from "lucide-react";
 
 const skills = [
   {
-    category: "Frontend",
+    category: "Frontend & UI",
     icon: Code2,
-    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
+    items: ["React", "HTML/CSS", "TypeScript", "Tailwind CSS", "JavaScript", "Jinja2 (templates)", "Streamlit UI"],
     color: "from-blue-500 to-cyan-500",
   },
   {
-    category: "Backend",
+    category: "Backend & Web",
     icon: Database,
-    items: ["Python", "Node.js", "NestJS", "Flask", "Django"],
+    items: ["Python", "Node.js", "Flask", "REST APIs", "WSGI", "Gunicorn"],
     color: "from-violet-500 to-purple-500",
   },
   {
-    category: "Data & AI/ML",
+    category: "Data & ML",
     icon: Brain,
-    items: ["NumPy", "Pandas", "Matplotlib", "Sklearn", "PyTorch", "TensorFlow"],
+    items: ["NumPy", "Pandas", "Scikit-learn", "XGBoost", "NLP (bag-of-words)"],
     color: "from-pink-500 to-rose-500",
   },
   {
-    category: "Databases",
+    category: "Databases & Storage",
     icon: Database,
-    items: ["PostgreSQL", "MySQL", "Supabase", "MongoDB"],
+    items: ["SQLite", "PostgreSQL", "Cloudinary (assets)", "CSV / Excel"],
     color: "from-teal-500 to-green-500",
   },
   {
     category: "Cloud & DevOps",
     icon: Cloud,
-    items: ["AWS", "Docker", "Linux", "Git", "CI/CD"],
+    items: ["AWS", "Azure", "Docker", "Git", "CI/CD"],
     color: "from-orange-500 to-amber-500",
   },
   {
-    category: "Other",
+    category: "Tools & Other",
     icon: Layers,
-    items: ["Digital Marketing", "Process Automation", "System Admin", "Apache"],
+    items: ["Requests / API integration", "Linux / bash", "Data visualization", "Digital Marketing"],
     color: "from-indigo-500 to-blue-500",
   },
 ];
