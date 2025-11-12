@@ -5,6 +5,27 @@ import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { ExternalLink, Github, X } from "lucide-react";
 
+// Local Fire icon to match the dual-tone stroke style used in Skills
+function FireIcon(props: React.SVGProps<SVGSVGElement>) {
+  // Variant 1: slightly taller flame with a flowing stroke and inner negative space
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.6}
+        d="M12 3c1.8 2.2 4 4 4 7 0 4-3.5 6.5-4 9-.8-2.6-4-4.5-4-8 0-2.5 1.5-5.5 4-8z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.2}
+        d="M12 8.5c.6-.9 1.6-1 2-1.8.4-.9 0-1.6-.8-1.6-.4 0-.8.8-.9 1.1-.1.3-.6-.2-1-.2-.5 0-1 1-1 1.8 0 1 1 1.2 1.7 1.7z"
+      />
+    </svg>
+  );
+}
+
 const projects = [
   {
     title: "Fire Eye - Fire Safety Inspection System",
@@ -140,10 +161,16 @@ export default function Projects() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="relative px-6 py-6 rounded-2xl bg-white/6 dark:bg-white/6 backdrop-blur-sm border border-gray-200 dark:border-white/10 text-center w-11/12 max-w-sm">
                       <div className="flex items-center justify-center mb-3">
-                        {/* neutral dual-tone icon */}
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-8 h-8 text-gray-800 dark:text-gray-100">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3c1.5 2 4 5 6 7 2 2 2 5 0 7s-5 2-7 0c-2-2-5-4.5-7-6C3 10 6 6.5 8 4" />
-                        </svg>
+                        {/* Show a flame icon specifically for Fire Eye, otherwise show neutral icon */}
+                          {project.title.toLowerCase().includes("fire eye") ? (
+                            <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 shadow-lg mb-4 icon-glow">
+                              <FireIcon className="w-8 h-8 text-gray-900 dark:text-gray-100" />
+                            </div>
+                          ) : (
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-8 h-8 text-gray-800 dark:text-gray-100">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3c1.5 2 4 5 6 7 2 2 2 5 0 7s-5 2-7 0c-2-2-5-4.5-7-6C3 10 6 6.5 8 4" />
+                            </svg>
+                          )}
                       </div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Coming Soon</h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Launching soon — currently in development.</p>

@@ -30,7 +30,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center section-padding">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center section-padding">
       <div className="container-custom relative z-10">
         <motion.div
           variants={containerVariants}
@@ -179,10 +179,10 @@ export default function Hero() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 inset-x-0 flex justify-center"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-sm text-gray-500 dark:text-gray-400">Scroll to explore</span>
+          <span className="text-sm text-center text-gray-500 dark:text-gray-400">Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}

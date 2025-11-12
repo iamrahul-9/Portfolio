@@ -44,6 +44,15 @@ export default function Contact() {
     }
   };
 
+  // Local Instagram SVG icon (lucide-react doesn't include Instagram)
+  const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="3.2" />
+      <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" />
+    </svg>
+  );
+
   return (
     <section id="contact" className="section-padding bg-light-surface dark:bg-dark-surface/50 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -140,6 +149,7 @@ export default function Contact() {
                 {[
                   { icon: Github, href: "https://github.com/iamrahul-9", label: "GitHub" },
                   { icon: Linkedin, href: "https://www.linkedin.com/in/rahul-gupta-7b528718b/", label: "LinkedIn" },
+                  { icon: InstagramIcon, href: "https://www.instagram.com/_i.m.rahul_", label: "Instagram" },
                 ].map((social, index) => {
                   const Icon = social.icon;
                   return (
@@ -236,7 +246,7 @@ export default function Contact() {
                 disabled={status === "submitting"}
                 whileHover={{ scale: status === "submitting" ? 1 : 1.02 }}
                 whileTap={{ scale: status === "submitting" ? 1 : 0.98 }}
-                className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto inline-flex items-center gap-3 px-4 py-3 sm:px-3 sm:py-1.5 rounded-full bg-white/6 dark:bg-white/6 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-white/10 backdrop-blur-sm hover:bg-gray-100 dark:hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-200/40 dark:focus-visible:ring-white/20 transition text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === "submitting" ? (
                   <>
@@ -245,8 +255,10 @@ export default function Contact() {
                   </>
                 ) : (
                   <>
-                    <Send className="w-5 h-5" />
-                    Send Message
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/8 dark:bg-white/8 border border-gray-200 dark:border-white/10 shadow-sm">
+                      <Send className="w-3.5 h-3.5" />
+                    </span>
+                    <span>Send Message</span>
                   </>
                 )}
               </motion.button>
