@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Rahul Gupta favicon">
+  <defs>
+    <linearGradient id="gAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="gAccentDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#f87171"/>
+    </linearGradient>
+    <style>
+      :root{--bg:#ffffff;--glass:#ffffffcc;--fg:#0f172a;} 
+      @media (prefers-color-scheme: dark){
+        :root{--bg:#071024;--glass:#0b1220dd;--fg:#f8fafc;} 
+      }
+    </style>
+  </defs>
+
+  <!-- Glass rounded square background -->
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="var(--glass)"/>
+
+  <!-- Accent ring (dual-tone) -->
+  <rect x="8" y="8" width="48" height="48" rx="10" fill="none" stroke="url(#gAccent)" stroke-width="2" opacity="0.98"/>
+
+  <!-- Monogram RG in stroke style (lucide-like) -->
+  <g transform="translate(32,34)" fill="none" stroke="var(--fg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- R -->
+    <path d="M-14 -12 v18" />
+    <path d="M-14 -12 h6 a4 4 0 1 1 0 8 h-6" />
+    <path d="M-10 -2 v10" />
+    <!-- G (stylized) -->
+    <path d="M6 6 a6 6 0 1 1 0-12" />
+    <path d="M6 -2 h6" />
+  </g>
+
+  <!-- Small highlight circle to suggest glassy surface -->
+  <circle cx="18" cy="18" r="2.8" fill="white" opacity="0.12" />
+
+  <!-- Dark-mode accent overlay (uses CSS media query fallback to swap gradients) -->
+  <style>
+    @media (prefers-color-scheme: dark) {
+      rect[stroke^="url(#gAccent)"]{ stroke: url(#gAccentDark); }
+    }
+  </style>
+</svg>
