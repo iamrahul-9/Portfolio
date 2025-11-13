@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rahul Gupta Portfolio",
+  title: "Portfolio",
   description: "Building Intelligence into Experiences. Expert in Next.js, React, AI/ML, and Cloud Technologies.",
   keywords: ["Full Stack Developer", "AI Developer", "Next.js", "React", "Machine Learning", "Rahul Gupta"],
   authors: [{ name: "Rahul Gupta" }],
