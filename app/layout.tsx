@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Rahul Gupta | Full Stack & AI Developer",
+  title: "Rahul Gupta Portfolio",
   description: "Building Intelligence into Experiences. Expert in Next.js, React, AI/ML, and Cloud Technologies.",
   keywords: ["Full Stack Developer", "AI Developer", "Next.js", "React", "Machine Learning", "Rahul Gupta"],
   authors: [{ name: "Rahul Gupta" }],
@@ -36,7 +36,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        {/* Primary favicon (PNG) - place a 32x32 or 64x64 PNG at /public/favicon.png */}
+        <link rel="icon" href="/favicon-bg-removed.png?v=2" type="image/png" sizes="64x64" />
+        {/* Legacy / fallback icons */}
+        <link rel="icon" href="/favicon.ico" />
+        {/* Apple touch icon for iOS */}
+        <link rel="apple-touch-icon" href="/favicon.png?v=2" />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider

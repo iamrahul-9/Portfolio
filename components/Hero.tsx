@@ -161,7 +161,7 @@ export default function Hero() {
                           src="/images/rahul-gupta.jpeg"
                           alt="Rahul Gupta"
                           fill
-                          className="object-cover"
+                            className="object-cover object-top"
                           priority
                         />
                       </div>
