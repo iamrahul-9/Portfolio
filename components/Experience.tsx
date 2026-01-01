@@ -7,6 +7,19 @@ import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
+    title: "IT & Digital Solutions Specialist",
+    company: "Suntronics – Fire Fighting Panels",
+    period: "October 2025 – Present",
+    location: "Mumbai, MH, India (Remote)",
+    description:
+      "Spearheading digital transformation initiatives, including the development of the FireEye safety inspection platform and internal inventory systems.",
+    achievements: [
+      "Developed 'Fire Eye', a role-based fire safety inspection platform using Next.js and Supabase",
+      "Building an internal inventory system to streamline stock management and order processing",
+      "Automating manual workflows for customer and supplier lead generation, improving operational efficiency",
+    ],
+  },
+  {
     title: "Warehouse Supervisor & Technology Solutions Lead",
     company: "Jessy Fashions Inc. (MINKAS)",
     period: "July 2024 – October 2025",

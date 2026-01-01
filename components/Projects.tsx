@@ -29,17 +29,18 @@ function FireIcon(props: React.SVGProps<SVGSVGElement>) {
 const projects = [
   {
     title: "Fire Eye - Fire Safety Inspection System",
-    description: "Cloud-based fire safety panel inspection platform with role-based dashboards, real-time data sync, and mobile-responsive design for field inspections.",
-    tech: ["Next.js", "NestJS", "Supabase", "PostgreSQL", "JWT"],
-    screenshot: "/images/projects/fire-eye.svg",
-    status: "In development",
-    github: "https://github.com/iamrahul-9",
-    live: "#",
+    description:
+      "Cloud-based fire safety inspection platform with role-based dashboards, real-time data sync, calender timeline with scheduling and mobile-responsive design for field inspections.",
+    tech: ["Next.js", "Supabase", "PostgreSQL", "JWT", "Tailwind CSS"],
+    screenshot: "/images/projects/fire-eye-dashboard.png",
+    github: "https://github.com/iamrahul-9/FireEye-BE",
+    live: "https://fire-eye-xi.vercel.app/",
     gradient: "from-orange-500 to-red-500",
   },
   {
     title: "Line Sheet Manager",
-  description: "Flask-based line sheet manager for fashion wholesale: Excel import & processing (Pandas), image uploads (Cloudinary), dynamic line-sheet generation, user auth and admin workflows. Templates use Jinja2 and Tailwind CSS.",
+    description:
+      "Flask-based line sheet manager for fashion wholesale: Excel import & processing (Pandas), image uploads (Cloudinary), dynamic line-sheet generation, user auth and admin workflows. Templates use Jinja2 and Tailwind CSS.",
     tech: ["Python", "Flask", "SQLite", "Pandas", "Jinja2", "Tailwind CSS"],
     screenshot: "/images/projects/line-sheet-manager.png",
     github: "https://github.com/iamrahul-9/Line-Sheet-Manager",
@@ -48,7 +49,8 @@ const projects = [
   },
   {
     title: "Teckypedia - E-Commerce Platform",
-  description: "Flask + Tailwind e‑commerce platform for computer spare parts featuring user auth, product listings, shopping cart and an admin panel; SQLite backend and JS for UI interactions.",
+    description:
+      "Flask + Tailwind e‑commerce platform for computer spare parts featuring user auth, product listings, shopping cart and an admin panel; SQLite backend and JS for UI interactions.",
     tech: ["Python", "Flask", "Tailwind CSS", "SQLite", "JavaScript"],
     screenshot: "/images/projects/teckypedia.jpeg",
     github: "https://github.com/iamrahul-9/Teckypedia",
@@ -57,8 +59,9 @@ const projects = [
   },
   {
     title: "Movie Recommendation System",
-  description: "Streamlit demo of a movie recommender using bag-of-words content features and cosine similarity (content-based). README links to dataset and model artifacts for offline evaluation.",
-  tech: ["Python", "Streamlit", "NLP", "Scikit-learn"],
+    description:
+      "Streamlit demo of a movie recommender using bag-of-words content features and cosine similarity (content-based). README links to dataset and model artifacts for offline evaluation.",
+    tech: ["Python", "Streamlit", "NLP", "Scikit-learn"],
     screenshot: "/images/projects/movie-recommendation-system.png",
     github: "https://github.com/iamrahul-9/Movie-Recommendation-System",
     live: "#",
@@ -66,8 +69,9 @@ const projects = [
   },
   {
     title: "COVID-19 Vaccine Slot Tracker",
-  description: "Lightweight Python utility that queries the CoWIN (APISetu) endpoints to find available vaccine slots by pincode and date. Uses requests for API integration.",
-  tech: ["Python", "API Integration", "Requests"],
+    description:
+      "Lightweight Python utility that queries the CoWIN (APISetu) endpoints to find available vaccine slots by pincode and date. Uses requests for API integration.",
+    tech: ["Python", "API Integration", "Requests"],
     screenshot: "/images/projects/covid-vaccine-slot-tracker.png",
     github: "https://github.com/iamrahul-9/Covid-19-Vaccine-slot",
     live: "#",
@@ -75,8 +79,9 @@ const projects = [
   },
   {
     title: "House Price Prediction",
-  description: "Flask web app that uses a regression model to predict house prices. Includes a web UI (area, BHK, bathrooms, location inputs), model artifacts and a deployable site (Heroku preview available).",
-  tech: ["Python", "Flask", "Scikit-learn", "HTML/CSS", "JavaScript"],
+    description:
+      "Flask web app that uses a regression model to predict house prices. Includes a web UI (area, BHK, bathrooms, location inputs), model artifacts and a deployable site (Heroku preview available).",
+    tech: ["Python", "Flask", "Scikit-learn", "HTML/CSS", "JavaScript"],
     screenshot: "/images/projects/house-price-prediction.gif",
     github: "https://github.com/iamrahul-9/House-Price-Prediction",
     live: "#",
@@ -95,7 +100,8 @@ export default function Projects() {
       if (e.key === "Escape") setOpenSrc(null);
     }
 
-    const prevOverflow = typeof document !== "undefined" ? document.body.style.overflow : "";
+    const prevOverflow =
+      typeof document !== "undefined" ? document.body.style.overflow : "";
     if (openSrc) {
       document.body.style.overflow = "hidden";
     }
@@ -103,12 +109,16 @@ export default function Projects() {
     window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("keydown", onKey);
-      if (typeof document !== "undefined") document.body.style.overflow = prevOverflow;
+      if (typeof document !== "undefined")
+        document.body.style.overflow = prevOverflow;
     };
   }, [openSrc]);
 
   return (
-    <section id="projects" className="section-padding bg-light-surface dark:bg-dark-surface/50">
+    <section
+      id="projects"
+      className="section-padding bg-light-surface dark:bg-dark-surface/50"
+    >
       <div className="container-custom">
         <motion.div
           ref={ref}
@@ -121,7 +131,8 @@ export default function Projects() {
             <span className="gradient-text">Featured Projects</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A showcase of my recent work, from AI-powered applications to scalable web platforms
+            A showcase of my recent work, from AI-powered applications to
+            scalable web platforms
           </p>
         </motion.div>
 
@@ -145,15 +156,32 @@ export default function Projects() {
               ) : null}
               {/* Project Image/Icon */}
               <div
-                className={`relative aspect-video bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 flex items-center justify-center overflow-hidden ${project.status ? "" : "cursor-pointer"}`}
-                onClick={project.status ? undefined : () => project.screenshot && setOpenSrc(project.screenshot)}
-                role={project.status ? undefined : project.screenshot ? "button" : undefined}
+                className={`relative aspect-video bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 flex items-center justify-center overflow-hidden ${
+                  project.status ? "" : "cursor-pointer"
+                }`}
+                onClick={
+                  project.status
+                    ? undefined
+                    : () => project.screenshot && setOpenSrc(project.screenshot)
+                }
+                role={
+                  project.status
+                    ? undefined
+                    : project.screenshot
+                    ? "button"
+                    : undefined
+                }
                 tabIndex={project.status ? -1 : project.screenshot ? 0 : -1}
                 onKeyDown={(e) => {
                   // open on Enter or Space when interactive
                   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   // @ts-ignore
-                  if (!project.status && project.screenshot && (e.key === "Enter" || e.key === " ")) setOpenSrc(project.screenshot);
+                  if (
+                    !project.status &&
+                    project.screenshot &&
+                    (e.key === "Enter" || e.key === " ")
+                  )
+                    setOpenSrc(project.screenshot);
                 }}
               >
                 {/* If project is in development (has status), show Coming Soon placeholder and disable click */}
@@ -162,32 +190,47 @@ export default function Projects() {
                     <div className="relative px-6 py-6 rounded-2xl bg-white/6 dark:bg-white/6 backdrop-blur-sm border border-gray-200 dark:border-white/10 text-center w-11/12 max-w-sm">
                       <div className="flex items-center justify-center mb-3">
                         {/* Show a flame icon specifically for Fire Eye, otherwise show neutral icon */}
-                          {project.title.toLowerCase().includes("fire eye") ? (
-                            <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 shadow-lg mb-4 icon-glow">
-                              <FireIcon className="w-8 h-8 text-gray-900 dark:text-gray-100" />
-                            </div>
-                          ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-8 h-8 text-gray-800 dark:text-gray-100">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3c1.5 2 4 5 6 7 2 2 2 5 0 7s-5 2-7 0c-2-2-5-4.5-7-6C3 10 6 6.5 8 4" />
-                            </svg>
-                          )}
+                        {project.title.toLowerCase().includes("fire eye") ? (
+                          <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 shadow-lg mb-4 icon-glow">
+                            <FireIcon className="w-8 h-8 text-gray-900 dark:text-gray-100" />
+                          </div>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            className="w-8 h-8 text-gray-800 dark:text-gray-100"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="1.5"
+                              d="M12 3c1.5 2 4 5 6 7 2 2 2 5 0 7s-5 2-7 0c-2-2-5-4.5-7-6C3 10 6 6.5 8 4"
+                            />
+                          </svg>
+                        )}
                       </div>
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Coming Soon</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Launching soon — currently in development.</p>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Coming Soon
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        Launching soon — currently in development.
+                      </p>
                     </div>
                   </div>
+                ) : project.screenshot ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={project.screenshot}
+                    alt={`${project.title} screenshot`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 ) : (
-                  project.screenshot ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={project.screenshot}
-                      alt={`${project.title} screenshot`}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <span className="text-7xl filter drop-shadow-lg">{project.title.charAt(0)}</span>
-                  )
+                  <span className="text-7xl filter drop-shadow-lg">
+                    {project.title.charAt(0)}
+                  </span>
                 )}
 
                 {/* subtle overlay retained for aesthetics (no action buttons here) */}
