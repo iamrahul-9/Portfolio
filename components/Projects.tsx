@@ -26,7 +26,18 @@ function FireIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  screenshot: string;
+  github: string;
+  live: string;
+  gradient: string;
+  status?: string;
+}
+
+const projects: Project[] = [
   {
     title: "Fire Eye - Fire Safety Inspection System",
     description:
