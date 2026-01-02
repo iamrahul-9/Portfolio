@@ -9,25 +9,25 @@ const skills = [
   {
     category: "Frontend & UI",
     icon: Code2,
-    items: ["React", "HTML/CSS", "TypeScript", "Tailwind CSS", "JavaScript", "Jinja2 (templates)", "Streamlit UI"],
+    items: ["Next.js", "React", "HTML/CSS", "TypeScript", "Tailwind CSS", "JavaScript", "Jinja2 (templates)", "Streamlit UI"],
     color: "from-blue-500 to-cyan-500",
   },
   {
     category: "Backend & Web",
     icon: Database,
-    items: ["Python", "Node.js", "Flask", "REST APIs", "WSGI", "Gunicorn"],
+    items: ["Node.js", "NestJS", "Python", "Flask", "REST APIs", "Supabase", "JWT"],
     color: "from-violet-500 to-purple-500",
   },
   {
     category: "Data & ML",
     icon: Brain,
-    items: ["NumPy", "Pandas", "Scikit-learn", "XGBoost", "NLP (bag-of-words)"],
+    items: ["NumPy", "Pandas", "Scikit-learn", "NLP (bag-of-words)"],
     color: "from-pink-500 to-rose-500",
   },
   {
     category: "Databases & Storage",
     icon: Database,
-    items: ["SQLite", "PostgreSQL", "Cloudinary (assets)", "CSV / Excel"],
+    items: ["PostgreSQL", "Supabase", "SQLite", "Cloudinary (assets)", "CSV / Excel"],
     color: "from-teal-500 to-green-500",
   },
   {

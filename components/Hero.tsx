@@ -61,7 +61,7 @@ export default function Hero() {
             </h2>
 
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl text-balance">
-              Building Intelligence into Experiences. Crafting seamless web applications with cutting-edge AI/ML integration.
+              Building Intelligence into Experiences. Crafting seamless full-stack web applications with **Next.js** and cutting-edge AI/ML integration.
             </p>
 
             {/* CTA Buttons */}
