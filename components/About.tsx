@@ -63,11 +63,11 @@ export default function About() {
             
             <div className="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
               <p>
-                I&apos;m Rahul Gupta — a Full Stack Developer and AI Engineer building production-ready web applications with Next.js, NestJS, and Supabase. I focus on practical ML, automation, and reliable deployments.
+                I&apos;m Rahul Gupta — a Full Stack Developer and AI Engineer building production-ready web applications with Next.js and Supabase. I focus on practical ML, automation, and reliable deployments.
               </p>
 
               <p>
-                I&apos;ve built internal tools like <strong>Line Sheet Manager</strong> (Flask + Pandas + Cloudinary) and fire safety platforms like Fire Eye (Next.js + Supabase). My stack: Next.js, NestJS, Python/Flask, and PostgreSQL.
+                I&apos;ve built internal tools like <strong>Line Sheet Manager</strong> (Flask + Pandas + Cloudinary) and fire safety platforms like Fire Eye (Next.js + Supabase). My stack: Next.js, Python/Flask, and PostgreSQL.
               </p>
 
               <div className="pt-6">

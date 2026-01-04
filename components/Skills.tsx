@@ -15,7 +15,7 @@ const skills = [
   {
     category: "Backend & Web",
     icon: Database,
-    items: ["Node.js", "NestJS", "Python", "Flask", "REST APIs", "Supabase", "JWT"],
+    items: ["Node.js", "Python", "Flask", "REST APIs", "Supabase", "JWT"],
     color: "from-violet-500 to-purple-500",
   },
   {
