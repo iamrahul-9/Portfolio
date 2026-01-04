@@ -63,18 +63,18 @@ export default function About() {
             
             <div className="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
               <p>
-                I&apos;m Rahul Gupta — a Full Stack Developer and AI Engineer building production-ready web applications with **Next.js**, **NestJS**, and **Supabase**. I focus on practical ML, automation, and reliable deployments.
+                I&apos;m Rahul Gupta — a Full Stack Developer and AI Engineer building production-ready web applications with Next.js, NestJS, and Supabase. I focus on practical ML, automation, and reliable deployments.
               </p>
 
               <p>
-                I&apos;ve built internal tools like <strong>Line Sheet Manager</strong> (Flask + Pandas + Cloudinary) and fire safety platforms like **Fire Eye** (Next.js + Supabase). My stack: **Next.js**, **NestJS**, **Python/Flask**, and **PostgreSQL**.
+                I&apos;ve built internal tools like <strong>Line Sheet Manager</strong> (Flask + Pandas + Cloudinary) and fire safety platforms like Fire Eye (Next.js + Supabase). My stack: Next.js, NestJS, Python/Flask, and PostgreSQL.
               </p>
 
               <div className="pt-6">
                 <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">What I Do</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { icon: Globe, text: "Full-Stack Web apps (Next.js, NestJS, Flask)" },
+                    { icon: Globe, text: "Full-Stack Web apps (Next.js, Flask)" },
                     { icon: TrendingUp, text: "Data & ML pipelines (Pandas, scikit-learn)" },
                     { icon: Settings, text: "Automation & integrations (APIs, Excel)" },
                     { icon: Cloud, text: "Deployment & ops (Docker, Heroku, AWS, Vercel)" }
